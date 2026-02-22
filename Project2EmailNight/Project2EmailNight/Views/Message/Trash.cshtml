@@ -1,0 +1,43 @@
+﻿@model List<Project2EmailNight.Entities.Message>
+@{
+    ViewData["Title"] = "Çöp Kutusu";
+}
+
+<div class="container mt-4">
+    <h4>🗑 Çöp Kutusu</h4>
+    <hr />
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Gönderen</th>
+                <th>Konu</th>
+                <th>Tarih</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @(string.IsNullOrWhiteSpace(item.SenderName)
+                            ? item.SenderEmail
+                            : (item.SenderName + " " + item.SenderSurname))
+                    </td>
+                    <td>@item.Subject</td>
+                    <td>@item.SendDate.ToString("dd.MM.yyyy HH:mm")</td>
+                    <td>
+                        <a href="/Message/MessageDetail/@item.MessageId" class="btn btn-sm btn-info">Aç</a>
+                        <a href="/Message/Restore/@item.MessageId" class="btn btn-sm btn-success">Geri Al</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a href="/Message/Inbox" class="btn btn-secondary mt-3">
+        📥 Gelen Kutusu
+    </a>
+</div>
+

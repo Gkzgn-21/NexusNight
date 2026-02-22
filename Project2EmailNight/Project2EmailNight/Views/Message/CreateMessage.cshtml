@@ -1,0 +1,121 @@
+﻿@model Project2EmailNight.Entities.Message
+
+<link href="c:\users\murad\onedrive\masaüstü\full_stack\project2emailnight\project2emailnight\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" rel="stylesheet" />
+@{
+    ViewData["Title"] = "Yeni E-Posta";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-9 col-xl-7">
+
+            <div class="card compose-card shadow-sm border-0">
+                <div class="card-body p-4 p-md-5">
+
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <h4 class="mb-0">📩 Yeni E-Posta</h4>
+                        <a href="/Message/Inbox" class="btn btn-outline-secondary btn-sm">📥 Gelen Kutusu</a>
+                    </div>
+
+                    <p class="text-muted mb-4">
+                        Alıcı email, konu ve mesaj içeriğini yazıp gönderebilir veya taslak olarak kaydedebilirsin.
+                    </p>
+
+                    <form method="post" id="messageForm">
+
+                        <div class="mb-3">
+                            <label class="form-label">Alıcı Email</label>
+                            <input asp-for="ReceiverEmail" type="email" class="form-control" placeholder="ornek@mail.com" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Kategori</label>
+                            <select asp-for="Category" class="form-select">
+                                <option value="">Kategori seç</option>
+                                <option value="Birincil">Birincil</option>
+                                <option value="İş">İş</option>
+                                <option value="Eğitim">Eğitim</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Konu</label>
+                            <input asp-for="Subject" class="form-control" placeholder="Konu..." />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Kategori</label>
+                            <select name="Category" class="form-select">
+                                <option value="Birincil">Birincil</option>
+                                <option value="Is">İş</option>
+                                <option value="Egitim">Eğitim</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Mesaj</label>
+
+                            <div id="editor"></div>
+
+                            <input type="hidden" asp-for="Body" id="Body" />
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary px-4">
+                                🚀 Mesajı Gönder
+                            </button>
+
+                            <button type="submit" formaction="/Message/SaveDraft" class="btn btn-warning px-4">
+                                📝 Taslak Kaydet
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+    <style>
+        .compose-card {
+            background: #e9ecef;
+            border-radius: 18px;
+        }
+
+            .compose-card .card-body {
+                background: transparent;
+            }
+
+        #editor {
+            min-height: 220px;
+            background: #fff;
+            border-radius: 10px;
+        }
+    </style>
+
+    <script>
+        var quill = new Quill('#editor', {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    [{ 'font': [] }, { 'size': [] }],
+                    ['bold', 'italic', 'underline', 'strike'],
+                    [{ 'color': [] }, { 'background': [] }],
+                    [{ 'align': [] }],
+                    [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                    ['link', 'image'],
+                    ['clean']
+                ]
+            }
+        });
+
+        document.getElementById('messageForm').addEventListener('submit', function () {
+            document.getElementById('Body').value = quill.root.innerHTML;
+        });
+    </script>
+}

@@ -1,0 +1,150 @@
+﻿@model Project2EmailNight.Dtos.RegisterDto
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kayıt Ol - NexusNight</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            background: url('/images/giris.png') center/cover no-repeat fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.55);
+        }
+
+        .wrap {
+            position: relative;
+            width: min(980px, 94vw);
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,.45);
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+        }
+
+        .left {
+            padding: 34px;
+        }
+
+        .right {
+            background: rgba(99, 102, 241, .14);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+        }
+
+        .title {
+            font-weight: 800;
+            font-size: 28px;
+            margin-bottom: 14px;
+        }
+
+        .muted {
+            color: #6b7280;
+            margin-bottom: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+
+    <div class="wrap">
+        <div class="left">
+            <div class="title">Yeni Kullanıcı Kaydı</div>
+            <div class="muted">Bilgileri doldur, mailine gelen doğrulama kodu ile hesabını aktifleştir.</div>
+            <form asp-action="Index" asp-controller="Register" method="post">
+                <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Adınız</label>
+                        <input class="form-control" asp-for="Name" />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Soyadınız</label>
+                        <input class="form-control" asp-for="Surname" />
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label">Email Adresi</label>
+                        <input class="form-control" asp-for="Email" />
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label">Kullanıcı Adı</label>
+                        <input asp-for="Username" class="form-control" placeholder="ornek: gulsumkizgin64" />
+                        <small class="text-muted">Boşluk ve Türkçe karakter kullanma (ü,ğ,ş,ı,ö,ç).</small>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label">Şifre</label>
+                        <input class="form-control" asp-for="Password" />
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label">Şifre Tekrar</label>
+                        <input class="form-control" asp-for="PasswordConfirm" />
+                    </div>
+
+                    <div class="col-12 d-flex align-items-center gap-2">
+                        <input class="form-check-input" asp-for="AcceptTerms" />
+                        <label class="form-check-label">
+                            Kullanım Şartları'nı okudum ve kabul ediyorum.
+                        </label>
+
+                        <a href="#" class="ms-auto" data-bs-toggle="modal" data-bs-target="#termsModal">
+                            Terms / Conditions
+                        </a>
+                    </div>
+
+                    <div class="col-12 d-flex gap-2 mt-2">
+                        <button class="btn btn-primary px-4">Kayıt Ol</button>
+                        <a class="btn btn-outline-secondary" href="/Login/UserLogin">Giriş Yap</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="right">
+            <div class="text-center" style="color:#111827;">
+                <div style="font-weight:800;font-size:22px;">NexusNight</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Terms & Conditions</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                </div>
+                <div class="modal-body">
+                    <p><b>Kullanım şartları</b> ve <b>gizlilik politikası</b> metnini buraya yapıştırabilirsin.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

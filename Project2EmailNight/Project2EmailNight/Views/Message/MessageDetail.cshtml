@@ -1,0 +1,38 @@
+﻿@model Project2EmailNight.Entities.Message
+@{
+    ViewData["Title"] = "Mesaj Detayı";
+}
+
+<div class="container mt-4">
+
+    <h4>📧 Mesaj Detayı</h4>
+    <hr />
+
+    <table class="table table-bordered">
+        <tr>
+            <th style="width:150px;">Gönderen</th>
+            <td>@Model.SenderEmail</td>
+        </tr>
+        <tr>
+            <th>Konu</th>
+            <td>@Model.Subject</td>
+        </tr>
+        <tr>
+            <th>Tarih</th>
+            <td>@Model.SendDate</td>
+        </tr>
+    </table>
+
+    <div class="border p-3 mt-3">
+        <strong>Mesaj İçeriği</strong>
+        <hr />
+        <p>@Html.Raw(Model.Body)</p>
+    </div>
+
+    <div class="mt-3">
+        <a href="/Message/Inbox" class="btn btn-secondary">📥 Gelen Kutusu</a>
+        <a href="/Message/Reply/@Model.MessageId" class="btn btn-primary">Yanıtla</a>
+        <a href="/Message/Delete/@Model.MessageId" class="btn btn-danger">🗑 Sil</a>
+    </div>
+
+</div>

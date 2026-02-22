@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\murad\\OneDrive\\Masa\u00FCst\u00FC\\Full_Stack\\Project2EmailNight\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9A6A1415-99B8-47CB-BE36-237512976F0A}|Project2EmailNight\\Project2EmailNight.csproj|c:\\users\\murad\\onedrive\\masa\u00FCst\u00FC\\full_stack\\project2emailnight\\project2emailnight\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9A6A1415-99B8-47CB-BE36-237512976F0A}|Project2EmailNight\\Project2EmailNight.csproj|solutionrelative:project2emailnight\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A6A1415-99B8-47CB-BE36-237512976F0A}|Project2EmailNight\\Project2EmailNight.csproj|c:\\users\\murad\\onedrive\\masa\u00FCst\u00FC\\full_stack\\project2emailnight\\project2emailnight\\views\\profile\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9A6A1415-99B8-47CB-BE36-237512976F0A}|Project2EmailNight\\Project2EmailNight.csproj|solutionrelative:project2emailnight\\views\\profile\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A6A1415-99B8-47CB-BE36-237512976F0A}|Project2EmailNight\\Project2EmailNight.csproj|c:\\users\\murad\\onedrive\\masa\u00FCst\u00FC\\full_stack\\project2emailnight\\project2emailnight\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9A6A1415-99B8-47CB-BE36-237512976F0A}|Project2EmailNight\\Project2EmailNight.csproj|solutionrelative:project2emailnight\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\murad\\OneDrive\\Masa\u00FCst\u00FC\\Full_Stack\\Project2EmailNight\\Project2EmailNight\\Views\\Dashboard\\Index.cshtml",
+              "RelativeDocumentMoniker": "Project2EmailNight\\Views\\Dashboard\\Index.cshtml",
+              "ToolTip": "C:\\Users\\murad\\OneDrive\\Masa\u00FCst\u00FC\\Full_Stack\\Project2EmailNight\\Project2EmailNight\\Views\\Dashboard\\Index.cshtml",
+              "RelativeToolTip": "Project2EmailNight\\Views\\Dashboard\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-20T19:08:39.468Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\murad\\OneDrive\\Masa\u00FCst\u00FC\\Full_Stack\\Project2EmailNight\\Project2EmailNight\\Views\\Profile\\Index.cshtml",
+              "RelativeDocumentMoniker": "Project2EmailNight\\Views\\Profile\\Index.cshtml",
+              "ToolTip": "C:\\Users\\murad\\OneDrive\\Masa\u00FCst\u00FC\\Full_Stack\\Project2EmailNight\\Project2EmailNight\\Views\\Profile\\Index.cshtml",
+              "RelativeToolTip": "Project2EmailNight\\Views\\Profile\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-21T14:09:58.803Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\murad\\OneDrive\\Masa\u00FCst\u00FC\\Full_Stack\\Project2EmailNight\\Project2EmailNight\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Project2EmailNight\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\murad\\OneDrive\\Masa\u00FCst\u00FC\\Full_Stack\\Project2EmailNight\\Project2EmailNight\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Project2EmailNight\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAD8AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-17T09:43:29.395Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

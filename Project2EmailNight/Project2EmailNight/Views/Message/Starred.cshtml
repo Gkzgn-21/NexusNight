@@ -1,0 +1,61 @@
+﻿@model List<Project2EmailNight.Entities.Message>
+
+@{
+    ViewData["Title"] = "Yıldızlılar";
+}
+
+<div class="container mt-4">
+    <h4>⭐ Yıldızlılar</h4>
+    <hr />
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Gönderen</th>
+                <th>Konu</th>
+                <th>Tarih</th>
+                <th>⭐</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @if (!string.IsNullOrWhiteSpace(item.SenderName))
+                        {
+                            @($"{item.SenderName} {item.SenderSurname}")
+                        }
+                        else
+                        {
+                            @(string.IsNullOrWhiteSpace(item.SenderName) ? item.SenderEmail : (item.SenderName + " " + item.SenderSurname))
+                        }
+                    </td>
+
+                    <td>
+                        <a href="/Message/MessageDetail/@item.MessageId">
+                            @item.Subject
+                        </a>
+                    </td>
+
+                    <td>@item.SendDate.ToString("dd.MM.yyyy HH:mm")</td>
+
+                    <td>
+                        <a href="/Message/ToggleStar/@item.MessageId" style="text-decoration:none; font-size:18px;">
+                            @(item.IsStarred ? "⭐" : "☆")
+                        </a>
+                    </td>
+
+                    <td>
+                        <a href="/Message/MessageDetail/@item.MessageId" class="btn btn-sm btn-info">
+                            Aç
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a href="/Message/Inbox" class="btn btn-secondary mt-3">📥 Gelen Kutusu</a>
+</div>

@@ -1,0 +1,24 @@
+﻿@model Project2EmailNight.Dtos.MailRequestDto
+
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+
+<div class=" container">
+    <br /><br />
+    <form asp-action="SendEmail" asp-controller="Email" method="post">
+        <label>Alıcı Email</label>
+        <input type="text" asp-for="ReceiverEmail" class="form-control" />
+        <br />
+        <label>Konu</label>
+        <input type="text" asp-for="Subject" class="form-control" />
+        <br />
+        <label>Mesaj</label>
+        <input type="text" asp-for="Body" class="form-control" />
+        <br />
+        <button class="btn btn-info">Mail Gönder</button>
+    </form>
+</div>

@@ -1,0 +1,154 @@
+﻿@model Project2EmailNight.Models.ProfileViewModel
+
+@{
+    ViewData["Title"] = "Profil";
+}
+
+<div class="container-fluid mt-4 profile-page">
+    <div class="row g-4">
+
+        <div class="col-12 col-lg-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-body text-center p-4">
+
+                    @{
+                        var img = string.IsNullOrWhiteSpace(Model.ImageUrl)
+                        ? "https://via.placeholder.com/140x140.png?text=Profil"
+                        : Model.ImageUrl;
+                    }
+
+                    <img src="@img"
+                         class="rounded-circle mb-3"
+                         style="width:140px;height:140px;object-fit:cover;border:4px solid rgba(128,128,128,.15);" />
+
+                    <h4 class="fw-bold mb-1">@Model.Name @Model.Surname</h4>
+                    <div class="text-muted mb-2">Üye</div>
+
+                    <div class="d-flex justify-content-center align-items-center gap-2 text-muted">
+                        <span>📍</span>
+                        <span>@(string.IsNullOrWhiteSpace(Model.City) ? "İstanbul" : Model.City)</span>
+                    </div>
+
+                    <hr class="my-4" />
+
+                    <div class="text-start">
+                        <h6 class="fw-bold mb-3">İletişim Bilgileri</h6>
+
+                        <div class="d-flex align-items-center mb-2">
+                            <div style="width:28px;">✉️</div>
+                            <div>
+                                <div class="fw-semibold">Email</div>
+                                <div class="text-muted">@Model.Email</div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-2">
+                            <div style="width:28px;">📞</div>
+                            <div>
+                                <div class="fw-semibold">Telefon</div>
+                                <div class="text-muted">@(!string.IsNullOrWhiteSpace(Model.Phone) ? Model.Phone : "+90 542 000 00 00")</div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center">
+                            <div style="width:28px;">🌐</div>
+                            <div>
+                                <div class="fw-semibold">Website</div>
+                                <div class="text-muted">@(!string.IsNullOrWhiteSpace(Model.Website) ? Model.Website : "project2emailnight")</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="fw-bold mb-0">Profil Düzenle</h5>
+                    </div>
+
+                    @* Validasyon / Hata mesajları *@
+                    <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success">@TempData["Success"]</div>
+                    }
+
+                    <!-- FORM -->
+                    <form asp-action="Index" asp-controller="Profile" method="post" enctype="multipart/form-data">
+                        <div class="row g-3">
+
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Ad</label>
+                                <input class="form-control" asp-for="Name" />
+                                <span class="text-danger" asp-validation-for="Name"></span>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Soyad</label>
+                                <input class="form-control" asp-for="Surname" />
+                                <span class="text-danger" asp-validation-for="Surname"></span>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label">Email Adresi</label>
+                                <input class="form-control" asp-for="Email" readonly />
+                                <span class="text-danger" asp-validation-for="Email"></span>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Konum</label>
+                                <input class="form-control" asp-for="City" placeholder="İstanbul" />
+                                <span class="text-danger" asp-validation-for="City"></span>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Website</label>
+                                <input class="form-control" asp-for="Website" placeholder="project2emailnight" />
+                                <span class="text-danger" asp-validation-for="Website"></span>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Telefon</label>
+                                <input class="form-control" asp-for="Phone" placeholder="+90 542 000 00 00" />
+                                <span class="text-danger" asp-validation-for="Phone"></span>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Yeni Şifre</label>
+                                <input class="form-control" asp-for="NewPassword" type="password"
+                                       placeholder="Değiştirmek istemiyorsanız boş bırakın" />
+                                <span class="text-danger" asp-validation-for="NewPassword"></span>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label">Profil Fotoğrafı</label>
+                                <input class="form-control" type="file" name="ImageFile" accept="image/png,image/jpeg" />
+                                <small class="text-muted">JPG/PNG, önerilen max 5MB</small>
+                            </div>
+
+                        </div>
+
+                        <div class="mt-4 d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary px-4">
+                                Değişiklikleri Kaydet
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

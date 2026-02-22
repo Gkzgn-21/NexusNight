@@ -1,0 +1,43 @@
+﻿@model List<Project2EmailNight.Entities.Message>
+
+@{
+    ViewData["Title"] = "Giden Kutusu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Giden Kutusu</h2>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-info">Henüz gönderilen yok.</div>
+}
+else
+{
+    <table class="table table-bordered table-dark">
+        <thead>
+            <tr>
+                <th>Alıcı</th>
+                <th>Konu</th>
+                <th>Tarih</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @(string.IsNullOrWhiteSpace(item.ReceiverName)
+                            ? item.ReceiverEmail
+                            : (item.ReceiverName + " " + item.ReceiverSurname))
+                    </td>
+                    <td>@item.Subject</td>
+                    <td>@item.SendDate.ToString("dd.MM.yyyy HH:mm")</td>
+                    <td>
+                        <a href="/Message/MessageDetail/@item.MessageId" class="btn btn-info btn-sm">Aç</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
